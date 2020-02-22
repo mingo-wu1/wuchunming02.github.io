@@ -89,21 +89,26 @@
         <h2 id="gRPC-安装"><a href="#gRPC-安装" class="headerlink" title="gRPC 安装"></a>gRPC 安装</h2><h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><p>linux环境，如果嫌网速慢或者出现下载无响应情况可以选择vpn或者手机热点（本人是手机热点），</p>
 <p>也可以选择更换到码云下载连接：git clone <a href="https://gitee.com/mirrors/grpc-framework" target="_blank" rel="noopener">https://gitee.com/mirrors/grpc-framework</a></p>
 <ol>
-<li>本教程是从github下载源码（非码云），（下载请耐心等待并确保成功）。</li>
+<li>先安装一些前置依赖。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone https:&#x2F;&#x2F;github.com&#x2F;grpc&#x2F;grpc.git</span><br><span class="line">cd grpc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential autoconf libtool pkg-config</span><br><span class="line">sudo apt install libgflags-dev libgtest-dev</span><br><span class="line">sudo apt install clang libc++-dev</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
+<li>本教程是从github下载源码（非码云），（下载请耐心等待并确保成功）。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo git clone https:&#x2F;&#x2F;github.com&#x2F;grpc&#x2F;grpc.git</span><br><span class="line">cd grpc</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
 <li>更新子模块（gRPC的依赖），失败就继续重来，或者使用手机热点继续安装直到最后一个依赖。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git submodule update --init</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
+<ol start="4">
 <li>编译安装，本人习惯采用cmake。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir build &amp;&amp; cd build</span><br><span class="line">sudo cmake ..</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
+<ol start="5">
 <li>成功</li>
 </ol>
 <h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><ol>
