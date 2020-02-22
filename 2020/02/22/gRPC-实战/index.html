@@ -7,13 +7,15 @@
   
   <title>gRPC 实战 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="gRPC 安装linux环境，如果嫌网速慢或者出现下载无响应情况可以选择vpn或者手机热点（本人是手机热点）， 也可以选择更换到码云下载连接：git clone https:&#x2F;&#x2F;gitee.com&#x2F;mirrors&#x2F;grpc-framework  本教程是从github下载源码（非码云），（下载请耐心等待并确保成功）。  12sudo git clone https:&#x2F;&#x2F;gith">
+<meta property="og:type" content="article">
 <meta property="og:title" content="gRPC 实战">
 <meta property="og:url" content="http://yoursite.com/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="gRPC 安装linux环境，如果嫌网速慢或者出现下载无响应情况可以选择vpn或者手机热点（本人是手机热点）， 也可以选择更换到码云下载连接：git clone https:&#x2F;&#x2F;gitee.com&#x2F;mirrors&#x2F;grpc-framework  本教程是从github下载源码（非码云），（下载请耐心等待并确保成功）。  12sudo git clone https:&#x2F;&#x2F;gith">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-22T04:22:58.000Z">
-<meta property="article:modified_time" content="2020-02-22T04:22:58.767Z">
+<meta property="article:modified_time" content="2020-02-22T05:51:24.603Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -86,7 +88,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="gRPC-安装"><a href="#gRPC-安装" class="headerlink" title="gRPC 安装"></a>gRPC 安装</h2><p>linux环境，如果嫌网速慢或者出现下载无响应情况可以选择vpn或者手机热点（本人是手机热点），</p>
+<p>也可以选择更换到码云下载连接：git clone <a href="https://gitee.com/mirrors/grpc-framework" target="_blank" rel="noopener">https://gitee.com/mirrors/grpc-framework</a></p>
+<ol>
+<li>本教程是从github下载源码（非码云），（下载请耐心等待并确保成功）。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone https:&#x2F;&#x2F;github.com&#x2F;grpc&#x2F;grpc.git</span><br><span class="line">cd grpc</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>更新子模块（gRPC的依赖）。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git submodule update --init</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>编译安装，本人习惯采用cmake。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build &amp;&amp; cd build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>成功</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
