@@ -5,15 +5,39 @@
   
 
   
-  <title>Hexo</title>
+  <title>ros分布式系统攻略-基础命令篇 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wuchunming02.github.io/index.html">
+  <meta name="description" content="需要说明的是：本篇博客内容来自于《ROS机器人编程 从基本概念到机器人应用程序编程实战》的第五章，本是打算参考和翻译官网相关资料，但官网资料的质量明显没有这本书描述的更为清楚，记录于此仅仅是为了自己学习和查找的方便！1 ROS命令概述ROS命令在http:&#x2F;&#x2F;wiki.ros.org&#x2F;ROS&#x2F;CommandLineTools上的维基页面上有详细描述。另外，在https:&#x2F;&#x2F;github.com&#x2F;r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ros分布式系统攻略-基础命令篇">
+<meta property="og:url" content="https://wuchunming02.github.io/2020/03/06/ros%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%94%BB%E7%95%A5-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E7%AF%87/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="需要说明的是：本篇博客内容来自于《ROS机器人编程 从基本概念到机器人应用程序编程实战》的第五章，本是打算参考和翻译官网相关资料，但官网资料的质量明显没有这本书描述的更为清楚，记录于此仅仅是为了自己学习和查找的方便！1 ROS命令概述ROS命令在http:&#x2F;&#x2F;wiki.ros.org&#x2F;ROS&#x2F;CommandLineTools上的维基页面上有详细描述。另外，在https:&#x2F;&#x2F;github.com&#x2F;r">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018122323094735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223231002977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223231022953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223231054527.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223231110449.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223231231607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223231947420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223232916833.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223233209156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223234250708.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223234312363.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018122323502855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181223235726483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181224000420624.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018122412420634.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181224124724749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018122412502771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181224125407858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181224130209463.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-03-06T11:19:59.000Z">
+<meta property="article:modified_time" content="2020-03-06T11:23:18.529Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2018122323094735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI3ODA2OTQ3,size_16,color_FFFFFF,t_70">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,9 +86,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ros分布式系统攻略-基础命令篇" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ros分布式系统攻略-基础命令篇" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/06/ros%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%94%BB%E7%95%A5-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E7%AF%87/" class="article-date">
   <time datetime="2020-03-06T11:19:59.000Z" itemprop="datePublished">2020-03-06</time>
@@ -77,8 +99,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/06/ros%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%94%BB%E7%95%A5-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E7%AF%87/">ros分布式系统攻略-基础命令篇</a>
+    <h1 class="article-title" itemprop="name">
+      ros分布式系统攻略-基础命令篇
     </h1>
   
 
@@ -404,233 +426,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-机器学习系列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/" class="article-date">
-  <time datetime="2020-02-24T02:35:47.000Z" itemprop="datePublished">2020-02-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">机器学习系列</a>
-    </h1>
+    <a href="/2020/02/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">机器学习系列</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="强化学习中很有名的算法Q-Learning"><a href="#强化学习中很有名的算法Q-Learning" class="headerlink" title="强化学习中很有名的算法Q-Learning"></a>强化学习中很有名的算法Q-Learning</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wuchunming02.github.io/2020/02/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/" data-id="ck7g3bzkp00000km683vt467n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-gRPC-实战" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/" class="article-date">
-  <time datetime="2020-02-22T04:22:58.000Z" itemprop="datePublished">2020-02-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/">gRPC 实战</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="gRPC-安装"><a href="#gRPC-安装" class="headerlink" title="gRPC 安装"></a>gRPC 安装</h2><p><strong>linux16.04 环境</strong></p>
-<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><h4 id="方案一：对网速无自信-本人也是对网速无感"><a href="#方案一：对网速无自信-本人也是对网速无感" class="headerlink" title="方案一：对网速无自信(本人也是对网速无感)"></a>方案一：对网速无自信(本人也是对网速无感)</h4><p>如果嫌网速慢或者出现下载无响应情况可以选择vpn或者手机热点（本人是手机热点），</p>
-<p>也可以选择更换到码云下载连接：git clone <a href="https://gitee.com/mirrors/grpc-framework" target="_blank" rel="noopener">https://gitee.com/mirrors/grpc-framework</a></p>
-<ol>
-<li>先安装一些前置依赖。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential autoconf libtool pkg-config</span><br><span class="line">sudo apt install libgflags-dev libgtest-dev</span><br><span class="line">sudo apt install clang libc++-dev</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>本教程是从github下载源码（非码云），（下载请耐心等待并确保成功）。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo git clone https:&#x2F;&#x2F;github.com&#x2F;grpc&#x2F;grpc.git</span><br><span class="line">cd grpc</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>更新子模块（gRPC的依赖），失败就继续重来，或者使用手机热点继续安装直到最后一个依赖。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git submodule update --init</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>编译安装，本人习惯采用cmake。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir build &amp;&amp; cd build</span><br><span class="line">sudo cmake ..</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>成功</li>
-</ol>
-<h4 id="方案二：如果很有自信网速很棒"><a href="#方案二：如果很有自信网速很棒" class="headerlink" title="方案二：如果很有自信网速很棒"></a>方案二：如果很有自信网速很棒</h4><p>​    在安装目录下面</p>
-<p>​    touch my.bash &amp;&amp; vim my.bash</p>
-<p>​    bash内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">sudo apt-get install build-essential autoconf libtool libgflags-dev libgtest-dev clang libc++-dev pkg-config unzip</span><br><span class="line">sudo git clone https:&#x2F;&#x2F;github.com&#x2F;grpc&#x2F;grpc.git</span><br><span class="line">cd grpc</span><br><span class="line">git submodule update --init</span><br><span class="line">sudo mkdir build &amp;&amp; cd build</span><br><span class="line">sudo cmake ..</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line">cd third_party&#x2F;protobuf</span><br><span class="line">sudo .&#x2F;autogen.sh</span><br><span class="line">sudo .&#x2F;configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<h3 id="实战："><a href="#实战：" class="headerlink" title="实战："></a>实战：</h3><p>​    <strong>构建服务端程序</strong></p>
-<p>​    </p>
-<h3 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h3><ol>
-<li><p>一个现代的开源的高性能的RPC框架。支持很多语言，当然主流语言是必须支持滴；支持很多插件；有着丰富的特性；跨平台能力强。</p>
-</li>
-<li><p>gRPC主要责任：管理network connection的生命周期；管理RPC calls的生命周期。</p>
-</li>
-<li><p>gRPC的代码栈：</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222141524264.png" alt></p>
-</li>
-<li><p>gRPC基础操作：</p>
-</li>
-</ol>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222142655648.png" alt></p>
-<ol start="5">
-<li><p>gRPC常规的<strong>单次</strong>请求和响应：</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222144534417.png" alt></p>
-<p><strong>补充什么是半关闭：</strong></p>
-<p> TCP连接是全双工（即数据在两个方向上能同时传递，可理解为两个方向相反的独立通道），因此每个方向必须单独地进行关闭。 </p>
-<p> linux系统下使用shutdown系统调用来控制socket的关闭方式。</p>
-<p> int shutdown(int sockfd, int how);  </p>
-<p> 参数 how允许为shutdown操作选择以下几种方式：  </p>
-<p> SHUT_RD：关闭连接的读端。也就是该套接字不再接受数据，任何当前在套接字接受缓冲区的数据将被丢弃，进程将不能对该套接字发出任何读操作，对TCP套接字该调用之后接受到的任何数据将被确认然后被丢弃。  </p>
-<p> SHUT_WR:  关闭连接的写端。  </p>
-<p> SHUT_RDWR:  相当于调用shutdown两，首先是以SHUT_RD，然后以SHUT_WR 。</p>
-</li>
-<li><p>RPC四种类型。（1、2、3 是4的特殊情况）</p>
-<p>1）Unary</p>
-<p>2）Client Streaming</p>
-<p>3) Server Streaming</p>
-<p>4）Bidi Streaming</p>
-</li>
-<li><p>gRPC的模型图。（与socket是很类似的）</p>
-</li>
-</ol>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222145750185.png" alt></p>
-<ol start="8">
-<li><p>RPC for load balancing：</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222150321280.png" alt></p>
-</li>
-<li><p>RPC的生命周期：Channel（通过通道传输的生命周期）</p>
-<p>1）</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222150956420.png" alt></p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222150828651.png" alt></p>
-</li>
-<li><p>RPC的生命周期：Call（调用的生命周期）</p>
-<p>1）客户端</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222151329553.png" alt></p>
-<p>2）服务端</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222151929296.png" alt></p>
-</li>
-<li><p>RPC的生命周期：Data Flow（数据流的生命周期）</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222153304242.png" alt></p>
-</li>
-</ol>
-<h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><ol>
-<li>可插拔的组件</li>
-</ol>
-<p>​    1）resolver</p>
-<p>​    2）balancer</p>
-<ol start="2">
-<li><p>丰富的特性</p>
-<p>1)    Service Config</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222154304179.png" alt></p>
-<p>2)    Binary logging</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222154459445.png" alt></p>
-<p>3）Channelz</p>
-<p><img src="/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/image-20200222154640812.png" alt></p>
-</li>
-</ol>
-<h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wuchunming02.github.io/2020/02/22/gRPC-%E5%AE%9E%E6%88%98/" data-id="ck6xcmbae0000ugm6dxty7o8g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/22/hello-world/" class="article-date">
-  <time datetime="2020-02-22T04:16:47.845Z" itemprop="datePublished">2020-02-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wuchunming02.github.io/2020/02/22/hello-world/" data-id="ck6xcmbb60001ugm64qq343df" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
